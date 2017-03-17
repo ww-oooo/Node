@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+    <strong>
+    利用get方式发送数据并解析成为json数据<br>
+    </strong>
+	笔记<br>
+	方法有三种<br>
+	1.自己切<br>
+	2.queryString   查询字符串   'user=user&password=123456'<br>
+	3.url        直接解析请求地址,最方便<br>
+	             urlLib.parse(url, true);<br>	
+	             pathname  地址<br>
+			     query   数据<br>
+     <strong>
+     	字符串,数组,json对象之间的相互装换
+     </strong><br>
+     字符串转换数组 : str.split('标识符',截取位置)<br>
+     数组转换成字符串 : arr.join();<br>
+     字符串转换成json : JSON.parse(str); <br>
+     json转换成字符串 : JSON.stringify(obj);<br>
+
+    
+
+
+</body>
+</html>
+<script>
+   //一个get方式得到的域名解析成为json数据
+   var get={};
+   var a='http://localhost:8081/?user=user&password=123456';
+   var arr=a.split('?');
+   var arr1=arr[1].split('&');
+	for(var i=0;i<arr1.length;i++){
+         var arr3=arr1[i].split('=');
+             get[arr3[0]]=arr3[1];
+    }
+     console.log(get);
+</script>
